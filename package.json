@@ -1,0 +1,17 @@
+{
+  "name": "js-compiler",
+  "version": "1.0.0",
+  "description": "Compiler JavaScrtipt for Python",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "compile": "npm run antlr4-js",
+    "antlr4-js": "java -Xmx500M -cp '/usr/local/lib/antlr-4.9.3-complete.jar:$CLASSPATH' org.antlr.v4.Tool  -Dlanguage=JavaScript -lib grammars -o lib -visitor -Xexact-output-dir grammars/ECMAScript.g4"
+  },
+  "author": "Rhuan-Rodrigues1",
+  "license": "ISC",
+  "dependencies": {
+    "antlr4": "^4.13.1"
+  }
+}

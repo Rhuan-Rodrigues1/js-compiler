@@ -1,0 +1,8 @@
+.DS_Store
+.antlr/
+grammars/.antlr/
+npm-debug.log
+node_modules/
+lib/
+.vscode
+package-lock.json
