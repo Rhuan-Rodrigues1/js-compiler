@@ -615,6 +615,7 @@ singleExpression
  | singleExpression '||' singleExpression                                 # LogicalOrExpression
  | singleExpression '?' singleExpression ':' singleExpression             # TernaryExpression
  | singleExpression '=' expressionSequence                                # AssignmentExpression
+ | Number arguments                                                       # NumberExpression
  | singleExpression assignmentOperator expressionSequence                 # AssignmentOperatorExpression
  | This                                                                   # ThisExpression
  | Identifier                                                             # IdentifierExpression
@@ -849,6 +850,7 @@ Throw      : 'throw';
 Delete     : 'delete';
 In         : 'in';
 Try        : 'try';
+Number     : 'Number';
 
 /// 7.6.1.2 Future Reserved Words
 Class   : 'class';

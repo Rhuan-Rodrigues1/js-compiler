@@ -3,7 +3,7 @@ import ECMAScriptLexer from "./lib/ECMAScriptLexer.js";
 import ECMAScriptParser from "./lib/ECMAScriptParser.js";
 import Visitor from "./codegeneration/PythonGenerator.js";
 
-const input = "{x: 1}";
+const input = "{x: new Number(1)}";
 
 const chars = new antlr4.InputStream(input);
 const lexer = new ECMAScriptLexer(chars);

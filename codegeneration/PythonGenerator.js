@@ -25,4 +25,33 @@ export default class Visitor extends ECMAScriptVisitor {
 
     return `'${key}': '${value}'`;
   }
+
+  visitNewExpression(ctx) {
+    return this.visit(ctx.singleExpression());
+  }
+
+  visitNumberExpression(ctx) {
+    const argumentList = ctx.arguments().argumentList();
+
+    if (argumentList === null || argumentList.getChildCount() !== 1) {
+      return "Error: Number requires one argument";
+    }
+
+    const arg = argumentList.singleExpression()[0];
+    const number = this.removeQuotes(this.visit(arg));
+
+    return `int(${number})`;
+  }
+
+  removeQuotes(str) {
+    let newStr = str;
+
+    if (
+      (str.charAt[0] === '"' && str.charAt[length - 1] === '"') ||
+      (str.charAt[0] === "'" && str.charAt[length - 1] === "'")
+    ) {
+      newStr = str.substr(1, str.length - 2);
+    }
+    return newStr;
+  }
 }
